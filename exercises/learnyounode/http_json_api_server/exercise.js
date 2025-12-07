@@ -5,7 +5,7 @@ let exercise = require('workshopper-exercise')()
 const filecheck = require('workshopper-exercise/filecheck')
 const execute = require('workshopper-exercise/execute')
 const comparestdout = require('workshopper-exercise/comparestdout')
-const rndport = require('../../lib/rndport')
+const rndport = require('../../../lib/rndport')
 
 const date = new Date(Date.now() - 100000)
 

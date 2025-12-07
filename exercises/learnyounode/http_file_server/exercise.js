@@ -12,7 +12,7 @@ const comparestdout = require('workshopper-exercise/comparestdout')
 const wrappedexec = require('workshopper-wrappedexec')
 const rndtxt = require('boganipsum')({ paragraphs: 1, sentenceMax: 1 }) + '\n'
 const testFile = path.join(os.tmpdir(), '_learnyounode_' + process.pid + '.txt')
-const rndport = require('../../lib/rndport')
+const rndport = require('../../../lib/rndport')
 
 // the output will be long lines so make the comparison take that into account
 exercise.longCompareOutput = true

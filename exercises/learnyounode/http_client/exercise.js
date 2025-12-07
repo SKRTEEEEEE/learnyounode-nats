@@ -2,7 +2,7 @@
 const http = require('http')
 const exercise = require('workshopper-exercise/basic')
 
-const words = require('../../lib/words')
+const words = require('../../../lib/words')
 
 // set up the data file to be passed to the submission
 exercise.addSetup(function (mode, callback) {

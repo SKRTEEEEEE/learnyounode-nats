@@ -4,8 +4,8 @@ let exercise = require('workshopper-exercise')()
 const filecheck = require('workshopper-exercise/filecheck')
 const execute = require('workshopper-exercise/execute')
 const comparestdout = require('workshopper-exercise/comparestdout')
-const rndport = require('../../lib/rndport')
-const words = require('../../lib/words')
+const rndport = require('../../../lib/rndport')
+const words = require('../../../lib/words')
 
 // checks that the submission file actually exists
 exercise = filecheck(exercise)
