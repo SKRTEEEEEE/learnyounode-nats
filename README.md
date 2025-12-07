@@ -1,75 +1,103 @@
-# Learn You The Node.js For Much Win!
-[![Build Status](https://travis-ci.org/workshopper/learnyounode.svg?branch=master)](https://travis-ci.org/workshopper/learnyounode)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nodeschool/discussions?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
-[![Help Contribute to Open Source](https://www.codetriage.com/workshopper/learnyounode/badges/users.svg)](https://www.codetriage.com/workshopper/learnyounode)
 
-**An intro to Node.js via a set of self-guided workshops.**
 
-[What is Node.js](https://github.com/nodeschool/what-is-node/blob/master/simple.en.md)
 
-[![NPM](https://nodei.co/npm/learnyounode.png?downloads=true&&downloadRank=true&stars=true)](https://nodei.co/npm/learnyounode/) [![NPM](https://nodei.co/npm-dl/learnyounode.png?months=3&height=3)](https://nodei.co/npm/learnyounode/)
+## 1. Resumen del Proyecto
 
-## What is learnyounode?
+**learnyounats** será una herramienta de aprendizaje interactiva en la línea de comandos, diseñada como un fork de `learnyounode`. El objetivo es enseñar a los desarrolladores de Node.js a utilizar el sistema de mensajería NATS, cubriendo desde los conceptos básicos de Publish/Subscribe hasta funcionalidades avanzadas de persistencia con NATS JetStream.
 
-![Learn You The Node.js For Much Win!](https://raw.github.com/rvagg/learnyounode/master/learnyounode.png)
+## 2. Nombre de la Aplicación
 
-<b><code>learnyounode</code></b> is a Node.js package that contains a series of workshop lessons which will teach you the basics of writing Node.js applications. The lessons start with a basic *"HELLO WORLD"* lesson, and then move on to more advanced exercises about dealing with synchronous & asynchronous I/O, filesystem operations, TCP and HTTP networking, events and streams.
+- **Nombre:** `learnyounode-nats`
+- **Comando principal:** `learnyounode-nats`
 
-## Installing learnyounode
+## 3. Inspiración y Mecánica Principal
 
-1. Install [Node.js](http://nodejs.org/)
-2. Run `npm install -g learnyounode` (this installs the learnyounode Node.js package globally). If this step fails, try one of the following fixes:
-    - Prefix the install command with sudo:
-      `sudo npm install -g learnyounode`
+La aplicación replicará la experiencia de usuario de `learnyounode`:
 
-      or
-    - [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
-3. Test that learnyounode has been installed successfully by running the command `learnyounode` in your terminal. This will start the learnyounode application, and you should see a blue screen similar to the one in the screenshot above.
-    - (Ubuntu users) In case step 3 fails, run `sudo apt-get install nodejs-legacy`
-4. **profit!**
+1.  **Instalación global:** A través de npm (`npm install -g learnyounats`).
+2.  **Menú interactivo:** El comando `learnyounats` mostrará una lista de ejercicios disponibles.
+3.  **Selección de ejercicio:** El usuario elige un ejercicio y la aplicación muestra las instrucciones y requisitos en la terminal.
+4.  **Resolución:** El usuario escribe el código de la solución en un archivo (ej: `solucion.js`).
+5.  **Verificación:** El usuario verifica su solución con el comando `learnyounats verify solucion.js`. El sistema ejecutará el script del usuario y un proceso de validación para comprobar si la solución es correcta.
 
-## Completing your first exercise
+## 4. Requisitos Técnicos Previos
 
-1. **Start up learnyounode** in your terminal by running the command `learnyounode` (you should see a blue screen similar to the one in the screenshot above).
-2. **Start a learnyounode exercise** by using the arrow keys to navigate, and the enter key to select a lesson. For this example, scroll to the "HELLO WORLD" lesson and press enter. This will result in three things happening:
-    1. The instructions for the "HELLO WORLD" lesson will now be printed out to your terminal (note: You may need to scroll up in your terminal to see the beginning of the lesson instructions if it has been cut off by your terminal window).
-    2. The `learnyounode verify` command will now be set to verify any script that you pass into it with the expected output of the lesson that you selected (in the case of the "HELLO WORLD" lesson, the command `learnyounode verify` will now check that the script file you pass in satisfies the expected outcomes of the "HELLO WORLD" lesson by making sure the script prints the text "HELLO WORLD" to stdout).
-    3. The learnyounode application will exit, allowing you to use your terminal again.
-3. **Create your solution for the exercise** by creating a new script file named "program.js" and following the instructions and hints that were printed out above for the lesson. For the "HELLO WORLD" lesson, your script "program.js" should have code in it that prints the text "HELLO WORLD" to stdout when run with Node.js (you can test your script file with Node.js by using the command: `node program.js`).
-4. **Verify that your solution to the lesson is correct** by running the command `learnyounode verify program.js` (note: if you named your script file something other than "program.js", replace "program.js" with the correct filename). If your solution is not correct, you will see a FAIL message along with some information about why your solution didn't pass the tests. In the case of a FAIL message, rework your solution until running the verify command passes. If your solution passes the tests, you should see a "PASS" message. Congratulations! :)
-5. **Move on to the next lesson** if you have verified that your solution is correct. Repeat these instructions from step 1 and select the next lesson that you would like to do (it is suggested to do the lessons in order from top to bottom).
+Para completar los ejercicios, el usuario necesitará:
 
-Once you have finished <b><code>learnyounode</code></b>, graduate to <b><code>[stream-adventure](https://github.com/substack/stream-adventure)</code></b> for a set of exercises that dig in to Node's streams.
+1.  **Node.js** y **npm** instalados.
+2.  Un **servidor NATS** en ejecución y accesible. Las instrucciones recomendarán iniciarlo fácilmente con Docker, incluyendo el soporte para JetStream:
+    ```bash
+    docker run --rm -p 4222:4222 -p 8222:8222 nats:latest -js
+    ```
 
-### Contributors
+## 5. Estructura de los Ejercicios Propuestos
 
-<b><code>learnyounode</code></b> is proudly brought to you by the following hackers:
+Los ejercicios tendrán una progresión lógica, comenzando con NATS Core y avanzando hacia JetStream.
 
-<table><tbody>
-<tr><th align="left">Rod Vagg</th><td><a href="https://github.com/rvagg">GitHub/rvagg</a></td><td><a href="http://twitter.com/rvagg">Twitter/@rvagg</a></td></tr>
-<tr><th align="left">Andrey Sidorov</th><td><a href="https://github.com/sidorares">GitHub/sidorares</a></td><td><a href="http://twitter.com/sidorares">Twitter/@sidorares</a></td></tr>
-<tr><th align="left">Julián Duque</th><td><a href="https://github.com/julianduque">GitHub/julianduque</a></td><td><a href="http://twitter.com/julian_duque">Twitter/@julian_duque</a></td></tr>
-<tr><th align="left">Lars-Magnus Skog</th><td><a href="https://github.com/ralphtheninja">GitHub/ralphtheninja</a></td><td><a href="http://twitter.com/ralphtheninja">Twitter/@ralphtheninja</a></td></tr>
-<tr><th align="left">Tim Inman</th><td><a href="https://github.com/thehack">GitHub/thehack</a></td><td><a href="http://twitter.com/timinman">Twitter/@timinman</a></td></tr>
-<tr><th align="left">Dan Flettre</th><td><a href="https://github.com/Flet">GitHub/Flet</a></td><td><a href="http://twitter.com/flettre">Twitter/@flettre</a></td></tr>
-<tr><th align="left">Leigh Zhu</th><td><a href="https://github.com/lisposter">GitHub/lisposter</a></td><td><a href="http://twitter.com/lisposter">Twitter/@lisposter</a></td></tr>
-<tr><th align="left">Lucas F. da Costa</th><td><a href="https://github.com/lucasfcosta">GitHub/lucasfcosta</a></td><td></td></tr>
-<tr><th align="left">Martin Heidegger</th><td><a href="https://github.com/martinheidegger">GitHub/martinheidegger</a></td><td><a href="http://twitter.com/leichtgewicht">Twitter/@leichtgewicht</a></td></tr>
-<tr><th align="left">Toshiharu Harada</th><td><a href="https://github.com/haradats">GitHub/haradats</a></td><td><a href="http://twitter.com/haradats">Twitter/@haradats</a></td></tr>
-<tr><th align="left">Eric Douglas</th><td><a href="https://github.com/ericdouglas">GitHub/ericdouglas</a></td><td><a href="http://twitter.com/ericdouglas_">Twitter/@ericdouglas_</a></td></tr>
-<tr><th align="left">Alejandro Oviedo</th><td><a href="https://github.com/a0viedo">GitHub/a0viedo</a></td><td><a href="http://twitter.com/a0viedo">Twitter/@a0viedo</a></td></tr>
-<tr><th align="left">Leonardo Nascimento</th><td><a href="https://github.com/leonascimento">GitHub/leonascimento</a></td><td><a href="http://twitter.com/leonardo386">Twitter/leonardo386</a></td></tr>
-<tr><th align="left">Christophe Porteneuve</th><td><a href="https://github.com/tdd">GitHub/tdd</a></td><td><a href="http://twitter.com/porteneuve">Twitter/@porteneuve</a></td></tr>
-<tr><th align="left">Do Minh Hai</th><td><a href="https://github.com/dominhhai">GitHub/dominhhai</a></td><td><a href="http://twitter.com/minhhai3b">Twitter/@minhhai3b</a></td></tr>
-<tr><th align="left">Phung Van Tu</th><td><a href="https://github.com/minatu2d">GitHub/minatu2d</a></td><td><a href="http://twitter.com/minatu2d">Twitter/@minatu2d</a></td></tr>
-<tr><th align="left">Shim</th><td><a href="https://github.com/marocchino">GitHub/marocchino</a></td><td><a href="http://twitter.com/marocchino">Twitter/@marocchino</a></td></tr>
-<tr><th align="left">Chayoung You</th><td><a href="https://github.com/yous">GitHub/yous</a></td><td><a href="http://twitter.com/_Yous">Twitter/@_Yous</a></td></tr>
-<tr><th align="left">Espen Dalløkken</th><td><a href="https://github.com/leftieFriele">GitHub/leftieFriele</a></td><td><a href="http://twitter.com/leftieFriele">Twitter/leftieFriele</a></td></tr>
-</tbody></table>
+Lecciones empaquetadas - cada lección incluye:
+- instrucciones.md (enunciado claro)
+- template/program.js (archivo base)
+- verify.js (script que valida la solución)
+- fixtures (archivos de apoyo si aplica)
 
-## License
+### Parte 1: Fundamentos de NATS Core
 
-**learnyounode** is Copyright (c) 2013-2015 learnyounode contributors (listed above) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.
+1.  **HOLA NATS**
+    -   **Objetivo:** Conectarse a un servidor NATS y cerrar la conexión correctamente.
+    -   **Verificación:** El script debe ejecutarse sin errores e imprimir en consola un mensaje de conexión exitosa.
 
-**learnyounode** builds on the excellent work by [@substack](https://github.com/substack) and [@maxogden](https://github.com/maxogden) who created **[stream-adventure](https://github.com/substack/stream-adventure)** which serves as the original foundation for **learnyounode**.
+2.  **PUBLICANDO TU PRIMER MENSAJE**
+    -   **Objetivo:** Publicar un mensaje simple en un *subject* específico.
+    -   **Verificación:** El verificador se suscribirá a ese *subject* y comprobará que el mensaje recibido es el correcto.
+
+3.  **SUSCRIBIÉNDOTE A MENSAJES**
+    -   **Objetivo:** Crear una suscripción a un *subject* y mostrar en consola el mensaje recibido.
+    -   **Verificación:** El verificador publicará un mensaje en el *subject* y comprobará que el script del usuario lo imprime en `stdout`.
+
+4.  **RESPUESTA A PETICIONES (REQUEST-REPLY)**
+    -   **Objetivo:** Crear un servicio que escuche peticiones en un *subject* y devuelva una respuesta.
+    -   **Verificación:** El verificador enviará una petición (`request`) y validará que recibe la respuesta esperada.
+
+5.  **SUSCRIPCIONES CON COMODINES**
+    -   **Objetivo:** Suscribirse a un patrón de *subjects* (ej: `eventos.*`) y procesar los mensajes.
+    -   **Verificación:** El verificador publicará en varios *subjects* que coincidan con el patrón (`eventos.creado`, `eventos.actualizado`) y comprobará que el script los procesa todos.
+
+### Parte 2: Persistencia con NATS JetStream
+
+6.  **INTRO A JETSTREAM**
+    -   **Objetivo:** Ejercicio teórico. Explicar qué es JetStream, los conceptos de *Stream* y *Consumer*.
+    -   **Verificación:** No requiere código, se marca como completado al seleccionarlo.
+
+7.  **CREANDO UN STREAM**
+    -   **Objetivo:** Conectarse al gestor de JetStream y crear un *Stream* para almacenar mensajes de ciertos *subjects*.
+    -   **Verificación:** El verificador usará la API de JetStream para comprobar que el *Stream* fue creado con la configuración correcta.
+
+8.  **PUBLICADOR PERSISTENTE**
+    -   **Objetivo:** Publicar un mensaje en un *subject* gestionado por un *Stream* de JetStream.
+    -   **Verificación:** El verificador publicará el mensaje y luego comprobará que el mensaje existe dentro del *Stream*.
+
+9.  **CONSUMIDOR DE UN STREAM**
+    -   **Objetivo:** Obtener y procesar un mensaje de un *Stream*.
+    -   **Verificación:** El verificador añadirá un mensaje al *Stream* y comprobará que el script del usuario lo consume y lo imprime en consola.
+
+10. **CONFIRMANDO MENSAJES (ACK)**
+    -   **Objetivo:** Consumir un mensaje y enviarle una confirmación (`ack`) a JetStream para que no lo vuelva a enviar.
+    -   **Verificación:** El verificador comprobará que, después de que el script del usuario se ejecute, el mensaje ha sido eliminado de la cola del consumidor.
+
+11. **CREANDO UN CONSUMIDOR DURABLE**
+    -   **Objetivo:** Crear un consumidor durable que mantenga su estado entre ejecuciones.
+    -   **Verificación:** El verificador comprobará que el consumidor durable ha sido creado correctamente en el servidor.
+
+## 6. Flujo de Verificación
+
+A diferencia de `learnyounode` (que a menudo solo revisa `stdout`), el verificador de `learnyounats` será más complejo:
+
+-   Actuará como un cliente NATS independiente.
+-   Para ejercicios de publicación, se suscribirá para recibir los mensajes del usuario.
+-   Para ejercicios de suscripción, publicará mensajes para el script del usuario.
+-   Para ejercicios de JetStream, usará las APIs de `JetStreamManager` y `JetStreamClient` para inspeccionar el estado del servidor (streams, consumidores, mensajes) antes y después de la ejecución del script del usuario.
+
+## 7. Interfaz de Usuario
+
+-   Se mantendrá la interfaz de texto minimalista y basada en menús de `learnyounode`, probablemente usando librerías como `terminal-menu` o similar.
+-   Los colores y el estilo buscarán emular la sensación retro/didáctica del original.
