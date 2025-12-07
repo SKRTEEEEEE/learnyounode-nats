@@ -1,8 +1,5 @@
-Claro, aquí tienes una propuesta de documento `app-plan` para "learnyounats". He seguido la estructura y mecánica de `learnyounode`, pero enfocando los ejercicios en NATS y NATS JetStream, manteniéndolo conciso.
 
----
 
-# App-Plan: learnyounats
 
 ## 1. Resumen del Proyecto
 
