@@ -1,0 +1,17 @@
+{
+  "title": "IMPARA IL NATS!",
+  "exercise": {
+    "HELLO NATS": "CIAO NATS"
+  },
+  "common": {
+    "exercise": {
+      "pass": {
+        "success": "Il programma è terminato con successo"
+      },
+      "fail": {
+        "unexpected_error": "Errore inaspettato: {{{message}}}",
+        "connection": "Errore di connessione: {{{message}}}"
+      }
+    }
+  }
+}

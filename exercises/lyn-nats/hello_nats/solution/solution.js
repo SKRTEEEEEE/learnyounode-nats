@@ -1,4 +1,4 @@
-// example solution for HELLO NATS
+'use strict'
 const { connect } = require('nats')
 
 ;(async () => {

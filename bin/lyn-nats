@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+
+require('../lyn-nats').execute(process.argv.slice(2))

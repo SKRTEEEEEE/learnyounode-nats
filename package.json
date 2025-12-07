@@ -83,7 +83,8 @@
     "test": "npm run lint && ./node_modules/.bin/workshopper-adventure-test"
   },
   "bin": {
-    "learnyounode": "./bin/learnyounode"
+    "learnyounode": "./bin/learnyounode",
+    "lyn-nats": "./bin/lyn-nats"
   },
   "main": "./learnyounode.js",
   "preferGlobal": true

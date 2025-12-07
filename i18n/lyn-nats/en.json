@@ -1,0 +1,17 @@
+{
+  "title": "LEARN YOU THE NATS!",
+  "exercise": {
+    "HELLO NATS": "HELLO NATS"
+  },
+  "common": {
+    "exercise": {
+      "pass": {
+        "success": "Program exited successfully"
+      },
+      "fail": {
+        "unexpected_error": "Unexpected error: {{{message}}}",
+        "connection": "Connection error: {{{message}}}"
+      }
+    }
+  }
+}
