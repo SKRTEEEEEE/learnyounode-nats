@@ -1,24 +1,27 @@
+# Learn You Node + Nats
 
+- **Todos los apartados de `learnyounode` original, estan encapsulados dentro de una nueva carpeta llamada /learnyounode/, dentro de la estructura original.**
+- **La versión `lyn-nats` solo tiene i18n para: `es`, `en`, `it` y `fr`.**
 
 
 ## 1. Resumen del Proyecto
 
-**learnyounats** será una herramienta de aprendizaje interactiva en la línea de comandos, diseñada como un fork de `learnyounode`. El objetivo es enseñar a los desarrolladores de Node.js a utilizar el sistema de mensajería NATS, cubriendo desde los conceptos básicos de Publish/Subscribe hasta funcionalidades avanzadas de persistencia con NATS JetStream.
+**learnyounode-nats** será una herramienta de aprendizaje interactiva en la línea de comandos, diseñada como un fork de `learnyounode`. El objetivo es enseñar a los desarrolladores de Node.js a utilizar el sistema de mensajería NATS, cubriendo desde los conceptos básicos de Publish/Subscribe hasta funcionalidades avanzadas de persistencia con NATS JetStream.
 
 ## 2. Nombre de la Aplicación
 
 - **Nombre:** `learnyounode-nats`
-- **Comando principal:** `learnyounode-nats`
+- **Comando principal:** `lyn-nats`
 
 ## 3. Inspiración y Mecánica Principal
 
 La aplicación replicará la experiencia de usuario de `learnyounode`:
 
-1.  **Instalación global:** A través de npm (`npm install -g learnyounats`).
-2.  **Menú interactivo:** El comando `learnyounats` mostrará una lista de ejercicios disponibles.
+1.  **Instalación global:** A través de npm (`npm install -g lyn-nats`).
+2.  **Menú interactivo:** El comando `lyn-nats` mostrará una lista de ejercicios disponibles.
 3.  **Selección de ejercicio:** El usuario elige un ejercicio y la aplicación muestra las instrucciones y requisitos en la terminal.
 4.  **Resolución:** El usuario escribe el código de la solución en un archivo (ej: `solucion.js`).
-5.  **Verificación:** El usuario verifica su solución con el comando `learnyounats verify solucion.js`. El sistema ejecutará el script del usuario y un proceso de validación para comprobar si la solución es correcta.
+5.  **Verificación:** El usuario verifica su solución con el comando `lyn-nats verify solucion.js`. El sistema ejecutará el script del usuario y un proceso de validación para comprobar si la solución es correcta.
 
 ## 4. Requisitos Técnicos Previos
 
@@ -34,11 +37,7 @@ Para completar los ejercicios, el usuario necesitará:
 
 Los ejercicios tendrán una progresión lógica, comenzando con NATS Core y avanzando hacia JetStream.
 
-Lecciones empaquetadas - cada lección incluye:
-- instrucciones.md (enunciado claro)
-- template/program.js (archivo base)
-- verify.js (script que valida la solución)
-- fixtures (archivos de apoyo si aplica)
+
 
 ### Parte 1: Fundamentos de NATS Core
 
@@ -90,7 +89,7 @@ Lecciones empaquetadas - cada lección incluye:
 
 ## 6. Flujo de Verificación
 
-A diferencia de `learnyounode` (que a menudo solo revisa `stdout`), el verificador de `learnyounats` será más complejo:
+A diferencia de `learnyounode` (que a menudo solo revisa `stdout`), el verificador de `learnyounode-nats` será más complejo:
 
 -   Actuará como un cliente NATS independiente.
 -   Para ejercicios de publicación, se suscribirá para recibir los mensajes del usuario.
@@ -101,3 +100,26 @@ A diferencia de `learnyounode` (que a menudo solo revisa `stdout`), el verificad
 
 -   Se mantendrá la interfaz de texto minimalista y basada en menús de `learnyounode`, probablemente usando librerías como `terminal-menu` o similar.
 -   Los colores y el estilo buscarán emular la sensación retro/didáctica del original.
+
+## 8. Diferencias `lyn-nats`
+### i18n
+Solo hay traduccion para los siguientes lenguajes: `es`, `en`, `it` y `fr`
+
+### Ejercicios
+Lecciones empaquetadas - cada lección incluye:
+- problem.md (enunciado claro - igual que en learnyounode)
+- theory.md (teoria)
+- excercise.js (archivo base - igual que en learnyounode)
+- /solution/ (solucion - igual que en learnyounode)
+- /test/ (valida la solución - igual que en learnyounode)
+- fixtures/tools (archivos de apoyo si aplica - igual que en learnyounode)
+#### Theory
+Al igual que problem, es un archivo que se traduce a todos los idiomas
+- Para abrirlo hay que ejecutar `lyn-nats theory` o `lyn-nats -t`
+    - Esto abre un menu IGUAL que `lyn-nats`, pero con una descripcion distinta avisando de que ahora abriremos el archivo de teoria del ejercicio en question
+    - Al clickar en el ej deseado, se abrira la informacion de teoria en vez de la problema, como en el flujo tradicional.
+##### Estilo
+- El archivo `theory.md` no puede superar nunca las 200 lineas
+- Ha de tener poco codigo, los ejemplos han de ser super-reducidos. En la medida de lo posible incluye links a otras paginas.
+- Centrate en poner la teoria para cada caso
+- Ha de tener traducciones a  `es`, `en`, `it` y `fr`
